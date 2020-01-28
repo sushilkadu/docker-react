@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sushilkadu/docker-client -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sushilkadu/docker-client npm run test
